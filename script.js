@@ -108,7 +108,9 @@ function handleOperand (value) {
     
     if (a!='' && b!='' && test!=true) {
         let res= operate(b,a,operator);
-        res = res.toFixed(5);
+        if (res.toString().length>=6){
+                    res = res.toFixed(5);
+                }
         if (res==="Infinity" || res==="-Infinity") {
             divWith0++;
             msg.innerHTML = "You can't divide with 0";
@@ -157,7 +159,10 @@ equal.addEventListener('click', function () {
         {
             if (!test) {
                 let res= operate(b,a,operator);
-                res = res.toFixed(5);              
+                if (res.toString().length>=6){
+                    res = res.toFixed(5);
+                }
+              //  res = res.toFixed(5);              
                 if (res==="Infinity" || res==="-Infinity") {
                 divWith0++;
                 msg.innerHTML = "You can't divide with 0";
